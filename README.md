@@ -34,3 +34,35 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Deploy to GitHub Pages
+
+This Next.js app is configured for static export and deployment to GitHub Pages.
+
+### Steps to deploy
+
+1. Make sure your repository is named `alt-text-web` (or update `basePath` and `assetPrefix` in `next.config.ts` accordingly).
+
+2. Build the app and export static files:
+
+```bash
+npm run build
+```
+
+3. The static files will be generated in the `out` directory.
+
+4. Push your code to the `main` branch on GitHub.
+
+5. GitHub Actions workflow (`.github/workflows/deploy.yml`) will automatically build and deploy the `out` directory to the `gh-pages` branch.
+
+6. In your GitHub repository settings, enable GitHub Pages:
+   - Source: `gh-pages` branch
+   - Folder: `/ (root)`
+
+7. Your app will be available at: `https://<your-github-username>.github.io/alt-text-web/`
+
+### Notes
+
+- The app uses `basePath` and `assetPrefix` in `next.config.ts` to support deployment under the `/alt-text-web` path.
+- Images are unoptimized to support static export.
+- The app uses `trailingSlash: true` to ensure correct routing on GitHub Pages.
